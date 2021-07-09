@@ -1,5 +1,5 @@
 # Cipher
-A C++17 wrapper for AES-128/192/256 (all CBC) and RSA encryption systems
+A C++17 wrapper for the AES-128/192/256 (all CBC) and RSA encryption systems
 
 The **Cipher** class is intended to be a secure and very easy-to-use interface:
 
