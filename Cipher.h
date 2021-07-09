@@ -48,7 +48,7 @@ namespace encryption {
         public:
             explicit operator bool() const noexcept { return !text.empty(); }
 
-            operator std::string() const noexcept { return text; }
+            operator std::string() const { return text; }
 
             constexpr KeyLength get_key_length() const noexcept { return key_length; }
 
@@ -88,7 +88,7 @@ namespace encryption {
 
             explicit operator bool() const noexcept { return !text.empty(); }
 
-            operator std::string() const noexcept { return to_str(); }
+            operator std::string() const { return to_str(); }
 
             constexpr const std::vector<RSA::ULL>& get() const noexcept { return text; }
 
@@ -96,7 +96,7 @@ namespace encryption {
 
             constexpr const PrivateKeys& get_private_keys() const noexcept { return private_keys; };
 
-            std::string to_str() const noexcept { return std::string(text.cbegin(), text.cend()); };
+            std::string to_str() const { return std::string(text.cbegin(), text.cend()); };
 
         private:
             friend class Cipher;
