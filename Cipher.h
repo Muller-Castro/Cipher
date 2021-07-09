@@ -22,6 +22,7 @@
 #ifndef CIPHER_H
 #define CIPHER_H
 
+#include <type_traits>
 #include <string>
 #include <string_view>
 #include <memory>
@@ -42,6 +43,8 @@ namespace encryption {
             M_192 = 192,
             S_128 = 128
         };
+
+        using KeyLengthBase = std::underlying_type_t<KeyLength>;
 
         class AESEncryptedText final
         {
@@ -164,7 +167,7 @@ namespace encryption {
 
             std::unique_ptr<const unsigned char[]> output(
 
-                AES(static_cast<unsigned short>(kl)).EncryptCBC(
+                AES(static_cast<KeyLengthBase>(kl)).EncryptCBC(
 
                     const_cast<unsigned char*>(reinterpret_cast<const unsigned char*>(data)),
                     sizeof(unsigned char) * length,
@@ -208,7 +211,7 @@ namespace encryption {
         {
             if(!e_text) return {};
 
-            const auto key_length_value = static_cast<unsigned short>(e_text.get_key_length());
+            const auto key_length_value = static_cast<KeyLengthBase>(e_text.get_key_length());
 
             const auto length = key_length_value >> 3;
 

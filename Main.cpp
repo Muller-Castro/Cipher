@@ -39,7 +39,7 @@ int main()
 
                 std::cout << std::setw(width) << "[AES-256-CBC] Key: " << e_text.get_key() << std::endl;
 
-                std::cout << std::setw(width) << "[AES-256-CBC] Key Length: " << static_cast<unsigned short>(e_text.get_key_length()) << " bits" << std::endl;
+                std::cout << std::setw(width) << "[AES-256-CBC] Key Length: " << static_cast<Cipher::KeyLengthBase>(e_text.get_key_length()) << " bits" << std::endl;
 
                 std::cout << std::setw(width) << "[AES-256-CBC] IV: " << e_text.get_iv() << std::endl;
 
