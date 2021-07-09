@@ -28,6 +28,9 @@ srand(time(nullptr));
 auto e_text = Cipher::encrypt(text);
 	   // Cipher::encrypt(text, seed); can be used to call 'srand(seed)' if 'seed != 1'
 
+auto[e, n]    = e_text.get_public_keys();
+auto[d, p, q] = e_text.get_private_keys();
+
 assert(Cipher::decrypt(e_text) == text);
 ```
 
