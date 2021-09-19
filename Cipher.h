@@ -22,6 +22,8 @@
 #ifndef CIPHER_H
 #define CIPHER_H
 
+static_assert(__cplusplus >= 201703L, "The 'Cipher.h' library must be used with at least C++17");
+
 #include <type_traits>
 #include <string>
 #include <string_view>
